@@ -6,6 +6,8 @@ require("dotenv").config();
 const PORT = process.env.PORT || 4000
 
 //middleware
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 app.use(express.json()) //to get the data from the body
 
 //Db connection

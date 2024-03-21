@@ -83,12 +83,14 @@ exports.login = async(req,res) => {
                                     {
                                         expiresIn : "2h",
                                     });
-            user = user.toObject();//why we need this?
+            
+            // console.log(typeof(user));
+            // user = user.toObject();//why we need this?
             user.token = token; //user ke andhar token banake usmein send kar diya
             user.password = undefined; // user ke object mein se password hata diya for security purpose
                          
             const options = {
-                expiresIn : new Date( Date.now() + 3*24*60*60*1000) , //persent se 3 days cookie with stay   )
+                expires : new Date( Date.now() + 3*24*60*60*1000) , //persent se 3 days cookie with stay   )
                 httpOnly: true, //cannot be accessed on client side
 
             }
